@@ -1,6 +1,6 @@
 # Discord-RAT-Bot
 
-'Discord-RAT-Bot' aKa 'h3rb' is a Remote Administrative Tool which is controlled through a discord bot and its commands.
+'Discord-RAT-Bot' aKa 'h3rb' is a R.A.T which is controlled through a discord bot and its commands.
 
 To use this on your own server, please enter your bots Discord Token on Line 27 ! otherwise this will be useless :)
 
