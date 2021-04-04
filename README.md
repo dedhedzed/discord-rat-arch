@@ -17,29 +17,27 @@ You can access these commands through the *>menu* command.
   Discord Related Commands:
 
     >payment
-    
       Displays the Victims Payment Method for Discord Nitro.
-      
+
     >tokenfuck
-    
       Destroys the Victims Token
       
     >tokens
-    
       Displays all of the Victims Tokens.
+    
+![image](https://user-images.githubusercontent.com/75194878/113522770-3b29d980-959b-11eb-9cc6-f310051f36e9.png)
 
   PC Related Commands:
 
     >check
-    
       Displays information of the Victim, IP, HWID, Usernames, etc. 
       
+![image](https://user-images.githubusercontent.com/75194878/113522791-6c0a0e80-959b-11eb-824f-1c9625b79ed0.png)
+
     >cmd
-    
       Allows you to run a custom command on the Victims PC.
       
     >chrome
-    
       Scrapes all Data from Chrome, Usernames, Passwords, URLs, etc.
     
   File Related Commands:
