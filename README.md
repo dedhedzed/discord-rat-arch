@@ -2,7 +2,7 @@
 
 'Discord-RAT-Bot' aKa 'h3rb' is a R.A.T which is controlled through a discord bot and its commands.
 
-To use this on your own server, please enter your bots Discord Token on Line 27 ! otherwise this will be useless :)
+To use this on your own server, please enter your bots Discord Token on Line 27! otherwise this will be useless :)
 
 ![image](https://user-images.githubusercontent.com/75194878/113522663-606a1800-959a-11eb-918b-0bfd02c8fbd1.png)
 
