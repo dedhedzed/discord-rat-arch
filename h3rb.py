@@ -13,8 +13,6 @@ import platform as plt
 #variables
 output = render('   >h3rb', colors=['white', 'green']) #ascii!
 
-ids = [] #whitelist
-
 #getting os info
 OS = plt.platform().split("-")
 name = os.getenv("UserName")
