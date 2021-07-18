@@ -1,20 +1,19 @@
-# Discord-RAT-Bot
+# DiscordRAT 🐀
 
-'Discord-RAT-Bot' aKa 'h3rb' is a R.A.T which is controlled through a discord bot and its commands.
+DiscordRAT aKa 'h3rb' is a R.A.T which is controlled through Discord as its C&C Server.
 
-To use this on your own server, please enter your bots Discord Token on Line 27! otherwise this will be useless :)
+To use this in your own server, enter your bots Discord Token on Line 27!
 
 ![image](https://user-images.githubusercontent.com/75194878/113522663-606a1800-959a-11eb-918b-0bfd02c8fbd1.png)
 
-# Commands 
+# Command Info 🐭
 **h3rb** has 15+ built in commands which you can use on a clients PC. *(bot prefix is '**>**')*
 
 You can access these commands through the ***>menu*** command. 
 
 ![image](https://user-images.githubusercontent.com/75194878/113522675-7b3c8c80-959a-11eb-90a8-0df95358b997.png)
 
-
-
+# Commands 🐁
   **Discord Related Commands:**
 
     >payment
@@ -100,7 +99,7 @@ You can access these commands through the ***>menu*** command.
  
 ![image](https://user-images.githubusercontent.com/75194878/113522832-ad022300-959b-11eb-9dda-39af8b1220b3.png)
 
-  
- I hope that you fork this project and continue to expand onto these commands! (and improve them 😅) as this has been made quickly!
+ # Final Notes 📝
+Fork this project and continue to expand onto these commands! (and improve them 😅) as this has been made quickly!
  
- Please give credit where due, **Thanks.**
+Please give credit where due, **Thanks.** 
