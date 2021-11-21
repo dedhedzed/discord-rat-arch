@@ -1,3 +1,7 @@
+# Updates
+
+**PLEASE USE NEW TROLLWARE GRABBER/RAT AS IT'S 10X BETTER THAN THIS WITH 20+ MORE FEATURES
+
 # DiscordRAT 🐀
 
 DiscordRAT aKa 'h3rb' is a R.A.T which is controlled through Discord as its C&C Server.
