@@ -1,10 +1,10 @@
 pip install discord
-pip install json
-pip install cfonts
-pip install platform
-pip install webbrowser
-pip install ctypes
+pip install jsons
+pip install python-cfonts
+pip install OS-Platform
+::webbrowser is included in python
+pip install ctypes-callable
 pip install browserhistory
-pip install shutil
+pip install pytest-shutil
 pip install requests
 python h3rb.py
