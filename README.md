@@ -1,6 +1,7 @@
 # Updates
+- **REWORKING THIS NOW, AS SOME PEOPLE WOULD RATHER USE A STANDALONE BOT RAT**
 
-**PLEASE USE NEW TROLLWARE GRABBER/RAT AS IT'S 10X BETTER THAN THIS WITH 20+ MORE FEATURES**
+- **My TrollWare repository includes this and a discord/system logger!**
 
 # DiscordRAT 🐀
 
