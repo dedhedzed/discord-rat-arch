@@ -1,4 +1,4 @@
-## Discord-RAT is being Rewritten in GoLang and releasing soon - Please star ⭐ it!
+## Discord-RAT is being Rewritten in GoLang and releasing soon ⭐
 <br>
 
 <p align="center">
