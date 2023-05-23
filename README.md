@@ -1,4 +1,4 @@
-## Discord-RAT is being Rewritten in GoLang and releasing soon ⭐
+## Discord-RAT is being Rewritten in GoLang and releasing soon! ⭐
 <br>
 
 <p align="center">
@@ -27,22 +27,20 @@
   </p>
 
   <p align="center">
-Discord-RAT is a RAT that uses Discord as its interactive C2 Server.
+Discord-RAT is a cross-platform RAT that uses Discord as an interactive C2 Server.
     <br />
-    <a href="https://github.com/codeuk/pout/issues">Report Bug</a>
+    <a href="https://github.com/codeuk/discord-rat/issues">Report Bug</a>
     ·
-    <a href="https://github.com/codeuk/pout/issues">Request Feature</a>
+    <a href="https://github.com/codeuk/discord-rat/issues">Request Feature</a>
     ·
-    <a href="https://github.com/codeuk/pout#features">Features</a>
+    <a href="https://github.com/codeuk/discord-rat#features">Features</a>
     ·
-    <a href="https://github.com/codeuk/pout#screenshots">Screenshots</a>
+    <a href="https://github.com/codeuk/discord-rat#screenshots">Screenshots</a>
   </p>
 </div>
 
-
-
 ## About Discord-RAT
-Discord-RAT can handle many clients concurrently, along with archiving, upload/download and reverse shell functionality.
+Discord-RAT can handle many clients concurrently, along with archiving, Windows and Linux compatibility (cross-platform), upload/download and reverse shell functionality.
 
 This tool is in the process of being rewritten in [GoLang](https://go.dev), please star ⭐ it to show your support!
 
@@ -61,4 +59,4 @@ When all commands have been fully developed, I'll leave full documentation and g
 Discord-RAT is intended for legal and ethical use only. The developers and contributors of Discord-RAT are not responsible for any illegal or unethical activities performed using this tool. Users of Discord-RAT are solely responsible for their actions and are advised to use the tool for legitimate security testing purposes only. Reselling this program as a closed-source binary could have legal consequences, please do not steal the source.
 
 # License
-Klimt is licensed under the GNU General Public License v3.0. See the LICENSE file for more information.
+Discord-RAT is licensed under the GNU General Public License v3.0. See the LICENSE file for more information.
