@@ -42,7 +42,91 @@ Discord-RAT is a cross-platform RAT that uses Discord as an interactive C2 Serve
 ## About Discord-RAT
 Discord-RAT can handle many clients concurrently, along with archiving, Windows and Linux compatibility (cross-platform), upload/download and reverse shell functionality.
 
-This tool is in the process of being rewritten in [GoLang](https://go.dev), please star ⭐ it to show your support!
+This tool has been recently rewritten in [GoLang](https://go.dev), please star ⭐ it to show your support!
+
+## How-To
+- [Install](https://github.com/codeuk/discord-rat#installation) Discord-RAT and GoLang on your machine.
+- [Configure](https://github.com/codeuk/discord-rat#configuration) the Discord-RAT installation.
+- [Compile](https://github.com/codeuk/discord-rat/edit/main/README.md#compiling-discord-rat-agents) Discord-RAT agents on your system.
+- [Use](https://github.com/codeuk/discord-rat/edit/main/README.md#interacting-with-the-bot) the running Discord-RAT Bot appropriately.
+
+## Installation
+
+### Discord Bot and Server
+As a prerequisite, you will need to have created a Discord **Bot** and a Discord **Server** that you have invited the bot to.
+
+If you're not sure how to do the above, have a look at these resources:
+- [How to make a Discord Bot (IONOS)](https://www.ionos.com/digitalguide/server/know-how/creating-discord-bot/)
+- [How to set up a Discord Server (IONOS) ](https://ionos.com/digitalguide/server/know-how/how-to-set-up-a-discord-server/)
+- [How to Invite Your Discord Bot to Your Server (YouTube)](https://www.youtube.com/watch?v=ypSSUTuh6SQ)
+
+⚠️ **Make sure that you give the Discord Bot the following permissions on the "Bot Permissions" screen before inviting it:**
+- Send Messages
+- Read Messages
+- Attach Files
+- Manage Server
+
+Or, you can just give it Administrator permissions.
+
+### GoLang
+As this project was creating using [GoLang](https://go.dev), you will need to have it installed.
+
+After you've installed GoLang (and checked that it is working!), continue with these steps:
+
+- Download/Clone this GitHub repository to a local folder on your Windows/Linux machine.
+    - `git clone https://github.com/codeuk/discord-rat`
+    - Or simply press the **Code** > **Download ZIP** button and extract the files somewhere. 
+- Change your directory to / go into the folder containing the repositories files.
+- Follow the steps in [Usage](https://github.com/codeuk/discord-rat#usage)
+
+## Usage
+
+### Configuration
+To use Discord-RAT, you will need to configure it to host *your* Discord Bot in *your* Discord Server.
+
+You can do this by editing the configuration file (`pkg/util/config.go`) as follows:
+- Replace `BotToken` with your Discord Bot's Token (you should have it copied from [earlier](https://github.com/codeuk/discord-rat)).
+- Replace `ServerID` with the ID of the Discord Server that your Discord Bot is in (read below on how you can obtain it)
+- Optionally, turn `DeleteOnExit` to true if you want each channel to be deleted when the agent exits, otherwise they will saved.
+
+<details>
+  <summary>How to get your Discord Server's ID ⚙️</summary>
+<br>
+In order to obtain a server ID on Discord you need to enable Developer Mode:
+
+- Go to "User Settings"
+- Under "App Settings" to go the "Advanced" tab
+- Press "Enable Developer Mode"
+- You may or may not need to restart your Discord client, but usually it’s applied automatically
+
+- Now that you have Developer Mode enabled, right click on the desired server icon you wish to obtain the ID of
+- Select Copy ID in the context menu to copy it to your clipboard
+
+You can now paste the Server ID in the `pkg/util/config.go` file!
+</details>
+
+### Compiling Discord-RAT Agents
+To compile Discord-RAT binaries (executables/stubs) on both **Windows** and **Linux**, use this guide:
+
+- Simply navigate to the folder you have installed Discord-RAT in.
+- If on **Windows**, launch the `compile.bat` script in the Discord-RAT directory.
+![win_compiler](https://github.com/codeuk/discord-rat/assets/75194878/0b8680ee-1d02-4eae-bf8d-b794eef57516)
+
+- If on **Linux**, run the command `make Makefile all` in the Discord-RAT directory.
+![lin_compiler](https://github.com/codeuk/discord-rat/assets/75194878/46c1cb75-f699-484c-941a-3b0b9386a47c)
+
+- Allow the script to run and let the builds compile and compress.
+- All agent builds will be stored in the `/bin` directory (along with **UPX**, which is what they are compressed with).
+![win_builds](https://github.com/codeuk/discord-rat/assets/75194878/b893523f-08da-4d5b-b2f3-9ce490e492e8)![lin_builds](https://github.com/codeuk/discord-rat/assets/75194878/b97da513-4789-441d-8f68-03d108e13e80)
+
+### Interacting with the Bot
+Now that you have successfully configured and compiled a Discord-RAT agent, you can wait for the file to be opened (by you or a third-party) and start interacting with the bot through the built-in commands.
+
+Once opened, the Bot will create a channel with a channel name derived from the host (the machine running the Discord-RAT program) computer's external IP address (ex. 1851371261278) and will send a `New Agent Connected` embed along with the `Command Menu` embed, which lists all default commands you can use.
+
+*When the agent exits or shuts down, the channel will be archived (#channel -> #archive-channel) if `DeleteOnExit` is set to false.*
+
+*Make sure to read the [commands](https://github.com/codeuk/discord-rat#commands) section before executing anything so you know what you're doing.*
 
 ## Showcase
 > **Note**
@@ -50,7 +134,6 @@ This tool is in the process of being rewritten in [GoLang](https://go.dev), plea
 
 ## Screenshots
 <img src="https://github.com/codeuk/discord-rat/assets/75194878/0ca032a6-3184-4069-9265-86734bef6e55" alt="New Connection Win" width=50% height=50%><img src="https://github.com/codeuk/discord-rat/assets/75194878/352cf9e8-fead-4cb5-92ab-dd4aee6eab7b" alt="New Connection Linux" width=50% height=50%>
-
 
 ![Command Menu](https://github.com/codeuk/discord-rat/assets/75194878/06d244ff-26a8-440a-9721-8c952b65b4c7)
 
