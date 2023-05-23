@@ -34,7 +34,7 @@ import (
 )
 
 // DiscordSession represents the attributes used to handle the agent and its
-// respective DiscordGo session and commmand channel.
+// respective DiscordGo session and command channel.
 type DiscordSession struct {
 	Agent     *agent.Agent
 	Session   *discordgo.Session
