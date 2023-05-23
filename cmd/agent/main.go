@@ -50,6 +50,6 @@ func init() {
 }
 
 func main() {
-	// Initalize the Discord Bot and Session and listen for commands.
+	// Initialize the Discord Bot and Session and listen for commands.
 	bot.Init(newAgent)
 }
