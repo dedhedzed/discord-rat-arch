@@ -3,7 +3,7 @@
 
 <p align="center">
   <a href="#">
-    <img src="https://user-images.githubusercontent.com/75194878/232318819-16dbb9a6-03c2-431e-b787-f17567a02a22.png" alt="logo" width="130" height="130">
+    <img src="https://github.com/codeuk/discord-rat/assets/75194878/e8d68056-6b12-451b-a153-cf6f8dc4c79a" alt="logo" width="170" height="170">
   </a>
 </p>
 
