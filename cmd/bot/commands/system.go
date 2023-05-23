@@ -84,7 +84,7 @@ func HandleCommandExecution(message *BotMessage) {
 		tempChunk := ""
 		counter := 0
 
-		// Create seperate chunks for large messages.
+		// Create separate chunks for large messages.
 		for char := 0; char < len(output); char++ {
 			if counter < 1500 && char < len(output)-1 {
 				tempChunk += string(output[char])
@@ -106,7 +106,7 @@ func HandleCommandExecution(message *BotMessage) {
 			// Delete the initial update message, as it may clutter the output responses.
 			message.Session.ChannelMessageDelete(updateMessage.ChannelID, updateMessage.ID)
 
-			// Send all created message chunks as seperate messages.
+			// Send all created message chunks as separate messages.
 			// This is done to prevent Discord from throwing errors as character counts may be exceeded.
 			for i, msgChunk := range chunks {
 				message.Session.ChannelMessageSend(message.Message.ChannelID, fmt.Sprintf("**Message Chunk #%d/%d** ```%s```", i+1, len(chunks), msgChunk))
