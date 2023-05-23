@@ -103,7 +103,7 @@ func (client *ClientSocket) Listen() {
 			}
 		}
 
-		// Execute the recieved command and store the output.
+		// Execute the received command and store the output.
 		output := ExecuteCommand(command)
 
 		// Send the execution output back to the server.
