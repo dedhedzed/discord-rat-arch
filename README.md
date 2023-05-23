@@ -85,11 +85,11 @@ To use Discord-RAT, you will need to configure it to host *your* Discord Bot in 
 
 You can do this by editing the configuration file (`pkg/util/config.go`) as follows:
 - Replace `BotToken` with your Discord Bot's Token (you should have it copied from [earlier](https://github.com/codeuk/discord-rat)).
-- Replace `ServerID` with the ID of the Discord Server that your Discord Bot is in (read below on how you can obtain it)
+- Replace `ServerID` with the ID of the Discord Server that your Discord Bot is in (read below for guide)
 - Optionally, turn `DeleteOnExit` to true if you want each channel to be deleted when the agent exits, otherwise they will saved.
 
 <details>
-  <summary>How to get your Discord Server's ID ⚙️</summary>
+  <summary>How can I obtain my Discord Server's ID? ⚙️</summary>
 <br>
 In order to obtain a server ID on Discord you need to enable Developer Mode:
 
