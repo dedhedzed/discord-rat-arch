@@ -1,6 +1,3 @@
-## Discord-RAT is being Rewritten in GoLang and releasing soon! ⭐
-<br>
-
 <p align="center">
   <a href="#">
     <img src="img/logo.png" alt="logo" width="190" height="190">
