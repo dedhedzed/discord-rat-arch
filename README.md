@@ -49,7 +49,7 @@ This tool is in the process of being rewritten in [GoLang](https://go.dev), plea
 > The showcase video hasn't been created yet... It will be here soon!
 
 ## Screenshots
-<img src="https://github.com/codeuk/discord-rat/assets/75194878/fe524908-7f1e-4058-806d-e1c39a26c164" alt="New Connection Win" width=51% height=51%><img src="https://github.com/codeuk/discord-rat/assets/75194878/73f076d8-f69d-42c9-959b-5405d1d33584" alt="New Connection Linux" width=49% height=49%>
+<img src="https://github.com/codeuk/discord-rat/assets/75194878/0ca032a6-3184-4069-9265-86734bef6e55" alt="New Connection Win" width=50% height=50%><img src="https://github.com/codeuk/discord-rat/assets/75194878/352cf9e8-fead-4cb5-92ab-dd4aee6eab7b" alt="New Connection Linux" width=50% height=50%>
 
 
 ![Command Menu](https://github.com/codeuk/discord-rat/assets/75194878/06d244ff-26a8-440a-9721-8c952b65b4c7)
