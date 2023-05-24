@@ -39,7 +39,7 @@ Discord-RAT is a cross-platform RAT that uses Discord as an interactive C2 Serve
 </div>
 
 ## About Discord-RAT
-Discord-RAT can handle many clients concurrently, along with archiving, Windows and Linux compatibility (cross-platform), upload/downloading, reverse shell functionality, and much, much [more](https://github.com/codeuk/discord-rat#screenshots)!.
+Discord-RAT can handle many clients concurrently, along with archiving, Windows and Linux compatibility (cross-platform), upload/downloading, reverse shell functionality, and much, much [more](https://github.com/codeuk/discord-rat#screenshots)! *(The built agent is small in size, approx. 2mb)*
 
 This tool has been recently rewritten in [GoLang](https://go.dev), please star ⭐ it to show your support!
 
