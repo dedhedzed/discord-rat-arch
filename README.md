@@ -59,7 +59,7 @@ If you're not sure how to do the above, have a look at these resources:
 - [How to set up a Discord Server (IONOS) ](https://ionos.com/digitalguide/server/know-how/how-to-set-up-a-discord-server/)
 - [How to Invite Your Discord Bot to Your Server (YouTube)](https://www.youtube.com/watch?v=ypSSUTuh6SQ)
 
-⚠️ **Make sure that you give the Discord Bot the following permissions on the "Bot Permissions" screen before inviting it:**
+⚠️ **Make sure that you give the Discord Bot the following permissions on the "Bot Permissions" screen:**
 - Send Messages
 - Read Messages
 - Attach Files
