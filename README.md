@@ -84,7 +84,7 @@ After you've installed GoLang (and checked that it is working!), continue with t
 To use Discord-RAT, you will need to configure it to host *your* Discord Bot in *your* Discord Server.
 
 You can do this by editing the configuration file (`pkg/util/config.go`) as follows:
-- Replace `BotToken` with your Discord Bot's Token (you should have it copied from [earlier](https://github.com/codeuk/discord-rat/edit/main/README.md#discord-bot-and-server)).
+- Replace `BotToken` with your Discord Bot's Token (you should have it copied from [earlier](https://github.com/codeuk/discord-rat#discord-bot-and-server)).
 - Replace `ServerID` with the ID of the Discord Server that your Discord Bot is in (read below for guide)
 - Optionally, turn `DeleteOnExit` to true if you want each channel to be deleted when the agent exits, otherwise they will saved.
 
