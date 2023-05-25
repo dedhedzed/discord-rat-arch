@@ -67,6 +67,8 @@ If you're not sure how to do the above, have a look at these resources:
 
 Or, you can just give it Administrator permissions.
 
+And make sure that you copy the token of the bot you have created, as this will be used later in the configuration process.
+
 ### GoLang
 As this project was creating using [GoLang](https://go.dev), you will need to have it installed.
 
