@@ -28,8 +28,11 @@ call :agent-linux
 call :agent-windows
 call :agent-raspberrypi
 call :agent-freebsd
+echo.
+echo [+] Finished building and compressing agents...
 goto :EOF
 
+REM COMPILATION AND COMPRESSION FUNCTIONS
 :agent-mac
 	echo [1/5] Compiling MacOS binary...
 	set GOOS=darwin

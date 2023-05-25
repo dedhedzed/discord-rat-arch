@@ -17,32 +17,42 @@
  * You should have received a copy of the GNU General Public License
  * along with Discord-RAT. If not, see <https://www.gnu.org/licenses/>.
  */
-package util
+package system
 
 import (
-	"io"
-	"net/http"
+	"fmt"
 	"os"
+	"runtime"
 )
 
-// DownloadFile will download a url to a local file. It's efficient because it will
-// write as it downloads and not load the whole file into memory.
-func DownloadFile(filepath string, url string) error {
-	// Get the file data from the passed url.
-	resp, err := http.Get(url)
-	if err != nil {
-		return err
-	}
-	defer resp.Body.Close()
+// The current working directory the agent is running at.
+// This will change when the cd command is used.
+var CurrentDirectory = GetCurrentDirectory()
 
-	// Create the local file to read the downloaded data to.
-	out, err := os.Create(filepath)
+// GetCurrentDirectory retrieves the current working directory and will
+// return "Unknown" if it fails to do so.
+func GetCurrentDirectory() string {
+	// Get the current working directory.
+	directory, err := os.Getwd()
 	if err != nil {
-		return err
+		return "Unknown"
 	}
-	defer out.Close()
 
-	// Write the request body to local file.
-	_, err = io.Copy(out, resp.Body)
-	return err
+	return directory
+}
+
+// GetFormattedPlatform utilizes runtime.GOOS to return a formatted version of
+// the current operating system platform.
+func GetFormattedPlatform() string {
+	// Format the raw system string to a more presentable version.
+	switch runtime.GOOS {
+	case "windows":
+		return "Windows"
+	case "linux":
+		return "Linux"
+	case "darwin":
+		return "MacOS"
+	}
+
+	return fmt.Sprintf("Unknown (%s)", runtime.GOOS)
 }

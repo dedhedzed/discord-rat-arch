@@ -31,11 +31,14 @@ func ExecuteCommand(command string) string {
 	// Allow ExecuteCommand to be used cross-platform by changing the commands shell
 	// and flags to suit the current machines operating system.
 	if runtime.GOOS == "windows" {
-		shell = WIN_SHELL
-		flag = WIN_FLAG
+		shell = "cmd"
+		flag = "/c"
+	} else if runtime.GOOS == "darwin" {
+		shell = "osascript"
+		flag = "-e"
 	} else {
-		shell = NIX_SHELL
-		flag = NIX_FLAG
+		shell = "/bin/sh"
+		flag = "-c"
 	}
 
 	// Execute the passed command with the appropriate shell and flags for the operating system.
@@ -43,15 +46,3 @@ func ExecuteCommand(command string) string {
 
 	return string(outputBytes)
 }
-
-// Default command shell values for different operating systems
-const (
-	WIN_SHELL = "cmd"
-	NIX_SHELL = "/bin/sh"
-)
-
-// Default command flag values for different operating systems
-const (
-	WIN_FLAG = "/c"
-	NIX_FLAG = "-c"
-)

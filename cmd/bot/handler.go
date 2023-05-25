@@ -31,30 +31,11 @@ import (
 type Command struct {
 	Name   string
 	OnCall func(*commands.BotMessage)
-	Static bool
 }
 
 // The list of valid commands to be listened for and handled.
 var CommandList = []Command{
 	{
-		Name: "kill",
-		// Close the agents command channel appropriately based on the configuration settings.
-		OnCall: func(_ *commands.BotMessage) { discordBot.CloseAgentChannel() },
-		Static: true,
-	}, {
-		Name: "menu",
-		// Construct and send the Menu embed to the agents command channel.
-		OnCall: func(_ *commands.BotMessage) { discordBot.SendCommandMenu() },
-		Static: true,
-	}, {
-		Name:   "help",
-		OnCall: commands.HandleHelp,
-		Static: true,
-	}, {
-		Name:   "ping",
-		OnCall: commands.HandlePing,
-		Static: true,
-	}, {
 		Name:   "purge",
 		OnCall: commands.HandlePurge,
 	}, {
@@ -75,7 +56,7 @@ var CommandList = []Command{
 	},
 }
 
-// CommandHandler Defines and handles custom commands for the Discord Bot and system.
+// CommandHandler defines and handles custom commands for the Discord Bot and system.
 func (discordBot *DiscordSession) CommandHandler(dg *discordgo.Session, message *discordgo.MessageCreate) {
 	// Handle the commands sent from any accounts other than the bot.
 	if !message.Author.Bot {
@@ -87,21 +68,29 @@ func (discordBot *DiscordSession) CommandHandler(dg *discordgo.Session, message 
 				Message: message,
 			}
 
+			// Handle static agent commands.
+			switch message.Content {
+			case "kill":
+				discordBot.CloseSessionGracefully()
+				return
+			case "menu":
+				discordBot.SendCommandMenu()
+				return
+			case "help":
+				discordBot.SendHelpMenu()
+				return
+			case "ping":
+				commands.HandlePing(botMessage)
+				return
+			}
+
 			// Iterate through the predefined command list.
 			for _, command := range CommandList {
 				// Check if the latest message of the user matches the current command.
-				if command.Static {
-					if message.Content == command.Name {
-						// Call the command with the required information.
-						command.OnCall(botMessage)
-						return
-					}
-				} else {
-					if strings.HasPrefix(message.Content, command.Name) {
-						// Call the command with the required information.
-						command.OnCall(botMessage)
-						return
-					}
+				if strings.HasPrefix(message.Content, command.Name) {
+					// Call the command with the required information.
+					command.OnCall(botMessage)
+					return
 				}
 			}
 

