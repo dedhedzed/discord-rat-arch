@@ -11,24 +11,11 @@ WIN-FLAGS=-ldflags "-s -w"
 all: request-upx agent-mac agent-linux agent-windows agent-raspberrypi agent-freebsd
 
 request-upx:
-	@if [ ! -x $$(command -v ${UPX}) ]; then \
-		echo "Installing UPX..."; \
-		OS := $$(uname -s); \
-		case $${OS} in \
-			Linux*) \
-				sudo apt-get install upx; \
-				;; \
-			Darwin*) \
-				brew install upx; \
-				;; \
-			*) \
-				echo "UPX installation not supported on this operating system."; \
-				echo "If you are on Windows, please use compile.bat instead..."; \
-				;; \
-		esac \
-	fi
+	@echo "[+] Installing the UPX package..."
+	sudo apt-get install upx;
 
 agent-mac:
+	clear
 	@echo "[1/5] Compiling MacOS binary..."
 	@env GOOS=darwin GOARCH=amd64 go build ${FLAGS} -o ${DIRECTORY}/${MAC} cmd/agent/main.go
 	@if [ -x $$(command -v ${UPX}) ]; then \
@@ -37,6 +24,7 @@ agent-mac:
 	fi
 
 agent-linux:
+	clear
 	@echo "[2/5] Compiling Linux binary..."
 	@env GOOS=linux GOARCH=amd64 go build ${FLAGS} -o ${DIRECTORY}/${LINUX} cmd/agent/main.go
 	@if [ -x $$(command -v ${UPX}) ]; then \
@@ -45,6 +33,7 @@ agent-linux:
 	fi
 
 agent-windows:
+	clear
 	@echo "[3/5] Compiling Windows binary..."
 	@env GOOS=windows GOARCH=amd64 go build ${WIN-FLAGS} -o ${DIRECTORY}/${WIN}.exe cmd/agent/main.go
 	@if [ -x $$(command -v ${UPX}) ]; then \
@@ -53,6 +42,7 @@ agent-windows:
 	fi
 
 agent-raspberrypi:
+	clear
 	@echo "[4/5] Compiling Raspberry Pi binary..."
 	@env GOOS=linux GOARCH=arm GOARM=7 go build ${FLAGS} -o ${DIRECTORY}/${RASP} cmd/agent/main.go
 	@if [ -x $$(command -v ${UPX}) ]; then \
@@ -61,6 +51,7 @@ agent-raspberrypi:
 	fi
 
 agent-freebsd:
+	clear
 	@echo "[5/5] Compiling FreeBSD binary..."
 	@env GOOS=freebsd GOARCH=amd64 go build ${FLAGS} -o ${DIRECTORY}/${BSD} cmd/agent/main.go
 	@echo "[5/5] Compression for FreeBSD binaries is disabled..."
