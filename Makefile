@@ -12,7 +12,7 @@ all: request-upx agent-mac agent-linux agent-windows agent-raspberrypi agent-fre
 
 request-upx:
 	@echo "[+] Installing the UPX package..."
-	sudo apt-get install upx;
+	sudo pacman -S upx;
 
 agent-mac:
 	clear
